@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock title %}
+{% block content %}
+<div class="container mt-5">
+    {% include "message.html" %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="text-center">Welcome to {{user.name}}</h3>
+            {{user.user_type}}
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
