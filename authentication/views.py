@@ -2,8 +2,9 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from authentication.forms import SignupForm
 from django.contrib import messages
-
 from authentication.models import CustomUser
+from django.contrib.auth import logout
+
 # Create your views here.
 def signup(request):
     if request.method == 'POST':
@@ -18,6 +19,7 @@ def signup(request):
     else:
         form= SignupForm()
     return render(request, 'signup.html', {'form': form})
+
  
 
 @login_required(login_url='login')
@@ -25,11 +27,14 @@ def home(request):
     return render(request, 'home.html')
 
 def profile(request):
-
     return render(request, 'profile.html')
 
 def profileEdit(request):
     # user = CustomUser.objects.get(id = user.id)
     # customUser = User.CustomUser.objects.get(id = user.id)
-
     return render(request, 'profile/editProfile.html')
+
+
+def logoutp(request):
+    logout(request)
+    return redirect('home')

@@ -16,7 +16,7 @@
         </div>
     {% endif %}
         <div class="card-body">
-            <form action="" method="POST">
+            <form action="" method="POST" novalidate>
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="btn btn-primary btn-block">Signup</button>

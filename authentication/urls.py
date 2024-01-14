@@ -7,8 +7,8 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('', views.home, name = 'home'),
     path('signup', views.signup, name = 'signup'),
-    path('logout', include('django.contrib.auth.urls')),
-    path('', include('django.contrib.auth.urls')),
+    path('logout', views.logoutp, name='logout'),
+    path('login', include('django.contrib.auth.urls')),
 
      # change password urls
     path('password-change/', auth_views.PasswordChangeView.as_view(), name='password_change'),
